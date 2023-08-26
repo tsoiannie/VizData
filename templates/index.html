@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VizData</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 2rem;
+        }
+        h1 {
+            margin-bottom: 2rem;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 1rem;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .note {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>VizData</h1>
+        <p class="author">A demonstration of different visualizations of data using Plotly</p>
+        <p class="note2">created by Annie Tsoi</p>
+        <ul>
+            <li><a href="{{ url_for('covid_dashboard') }}">Covid 19 Stats</a></li>
+            <p class="note">The data for Covid 19 Stats is sourced from Open Disease Data and uses their public API</p>
+            <li><a href="{{ url_for('drug_chart') }}">FDA Drug Bar Chart</a></li>
+            <li><a href="{{ url_for('drug_pie_chart') }}">FDA Drug Pie Chart</a></li>
+            <p class="note">The data for the FDA Drug Bar Chart and FDA Drug Pie Chart is sourced from OpenFDA and uses their public API</p>
+            <li><a href="{{ url_for('uk_holiday_bubble_chart') }}">UK Holiday Bubble Chart</a></li>
+            <p class="note">The data for the UK Holiday Bubble Chart is sourced from UK bank holidays and uses their public API</p>
+        </ul>
+    </div>
+</body>
+</html>

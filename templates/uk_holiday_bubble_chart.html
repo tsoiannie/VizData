@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UK Holiday Bubble Chart</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>UK Holiday Bubble Chart</h1>
+    <div id="chart" style="width: 100%; height: 500px;"></div>
+    <script>
+        // Get the chart HTML from the Flask app
+        var chartHtml = "{{ chart_html|safe }}";
+
+        // Add the chart HTML to the chart div
+        document.getElementById('chart').innerHTML = chartHtml;
+    </script>
+</body>
+</html>

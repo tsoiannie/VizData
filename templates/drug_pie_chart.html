@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drug Pie Chart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Drug Pie Chart</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div id="chart">{{ chart_html|safe }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form method="get">
+                    <div class="form-group">
+                        <label for="drug">Select a drug:</label>
+                        <select class="form-control" id="drug" name="drug">
+                            {% for drug in drugs %}
+                            <option value="{{ drug }}" {% if drug == selected_drug %}selected{% endif %}>{{ drug }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Get the selected drug from the URL parameters
+        var urlParams = new URLSearchParams(window.location.search);
+        var selectedDrug = urlParams.get('drug');
+
+        // Set the selected drug in the dropdown menu
+        var drugDropdown = document.getElementById('drug');
+        drugDropdown.value = selectedDrug;
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drug Chart</title>
+    {{ chart_html|safe }}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 2rem;
+        }
+        h1 {
+            margin-bottom: 2rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin-bottom: 1rem;
+        }
+        select {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Drug Bar Chart</h1>
+        <form method="GET" action="{{ url_for('drug_chart') }}">
+            <label for="drug">Select a drug:</label>
+            <select name="drug" id="drug">
+                <option value="Aspirin">Aspirin</option>
+                <option value="Ibuprofen">Ibuprofen</option>
+                <option value="Acetaminophen">Acetaminophen</option>
+                <option value="Naproxen">Naproxen</option>
+                <option value="Lisinopril">Lisinopril</option>
+                <option value="Metformin">Metformin</option>
+                <option value="Atorvastatin">Atorvastatin</option>
+                <option value="Levothyroxine">Levothyroxine</option>
+                <option value="Simvastatin">Simvastatin</option>
+                <option value="Losartan">Losartan</option>
+            </select>
+            <input type="submit" value="View Chart">
+        </form>
+    </div>
+</body>
+</html>

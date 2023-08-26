@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>COVID-19 Stats</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include the Plotly library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-3">COVID-19 Stats</h1>
+        <!-- Add the Plotly chart above the title -->
+        <div id="chart"></div>
+        <form method="POST" class="form-inline my-3">
+            <div class="form-group">
+                <input type="text" name="search_query" class="form-control mr-2" placeholder="Search by date">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
+        <p class="text-muted">Note: Recoveries data is not updated after 8/4/21, as it is not reported.</p>
+        <p class="author">uses the Open Disease Data API, Plotly line chart is at the very bottom of the page</p>
+        {{ table_html|safe }}
+    </div>
+    <!-- Add a script to display the Plotly chart -->
+    <script>
+        var chartDiv = document.getElementById('chart');
+        chartDiv.innerHTML = '{{ chart_html|safe }}';
+    </script>
+</body>
+</html>
